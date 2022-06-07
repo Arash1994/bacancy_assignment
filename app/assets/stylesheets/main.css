@@ -1,0 +1,23 @@
+body{
+  background-color: rgb(232 234 237) !important;
+}
+.img-profile{
+  height: 100px;
+  width: 100px;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.container{
+  margin-top: 20px !important;
+}
+
+.card{
+  border-radius: 20px !important;
+  padding: 20px
+}
+
+.auth-form{
+  margin-left: 20%;
+  margin-right: 20%;
+}

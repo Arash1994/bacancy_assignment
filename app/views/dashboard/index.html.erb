@@ -1,0 +1,51 @@
+<div class="row">
+
+<div class="col text-center card mr-4">
+  <h1>My account</h1>
+   <%= image_tag ('avatar.png'), class: "img-profile rounded-circle"%>
+  <div class="card-body">
+    <h5 class="card-title"><%= current_account.first_name%></h5>
+    <p class="card-text">$<%= current_account.balance%></p>
+  </div>
+</div>
+
+  <div class="col text-center card mr-4">
+    <h1>My Nominees <%=link_to "Add", new_nominee_path, class:"btn btn-primary"%></h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">First name</th>
+          <th scope="col">Relation</th>
+          <th scope="col">Weightage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%current_account.nominee_records.each_with_index do |nominee_record, i|%>
+        <tr>
+          <td><%= nominee_record.nominee.first_name%></td>
+          <td><%= nominee_record.relationship%></td>
+          <td><%=nominee_record.weightage%>%</td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col text-center card">
+    <h1>Nominated List</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">First name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%@nominated_list.each_with_index do |nominated_by, i|%>
+        <tr>
+          <td><%= nominated_by.account.first_name%></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+</div>

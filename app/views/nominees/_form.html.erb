@@ -1,0 +1,25 @@
+<div class="" data-controller="validation">                  
+<%= form_with model: nominee, url: nominees_path, class: "", local: true  do |f| %>
+    <div class="form-group row">
+        <%= f.hidden_field :account_id, value: current_account.id%>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label for="colFormLabel" class="col-form-label">Relation Ship</label><span class="text-danger">*</span>
+          <%= f.text_field :relationship, class: 'form-control', placeholder: "wine master name", required: true %>
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label for="colFormLabel" class="col-form-label">Weightage</label><span class="text-danger">*</span>
+          <%= f.select :weightage,
+                  options_for_select([10,20,30,40,50,60,70,80,90,100], f.object.weightage), {include_blank: "Select weightage"},
+                  {class: "form-control mr-2", required: true}%>
+          </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <label for="colFormLabel" class="col-form-label">Select Nominee</label><span class="text-danger">*</span>
+          <%= f.select :nominee_id,
+                  options_from_collection_for_select(Account.where.not(id: current_account.id), "id", "first_name", f.object.nominee_id), {include_blank: "Select nominee"},
+                  {class: "form-control mr-2", required: true} %>
+        </div> 
+    </div>
+  
+    <%= f.submit "Add", class: "btn btn-primary btn-user float-right mt-2"%>
+  <%end%>
+</div>

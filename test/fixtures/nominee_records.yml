@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nominated_by_id: 
+  nominee_id: 
+  relationship: MyString
+  weightage: 1
+
+two:
+  nominated_by_id: 
+  nominee_id: 
+  relationship: MyString
+  weightage: 1
